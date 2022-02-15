@@ -1,6 +1,7 @@
-# Archimate layered view
+# Archimate views
 
-For a detailed analysis please refer to the Archi diagram 
+Here a couple of views covering the entire layering. 
 
+![ApplicationUsage](InsuranceCompany-ApplicationUsage.png)
 
 
