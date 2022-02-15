@@ -8,6 +8,6 @@ Some views are reported here. A complete set is included in the Archi files
 
 ## BPMN choreography diagram
 
-![BPMN choreography](InsuranceCompany-Insurance-Choreo.pdf)
+![BPMN choreography](Insurance-Choreo.pdf)
 
 ## BPMN collaboration diagram
