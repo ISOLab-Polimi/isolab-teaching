@@ -1,4 +1,4 @@
-## Archimate views
+# Archimate views
 
 Some views are reported here. A complete set is included in the Archi files
 
