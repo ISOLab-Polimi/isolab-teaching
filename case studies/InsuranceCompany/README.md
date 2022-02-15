@@ -6,8 +6,4 @@ Some views are reported here. A complete set is included in the Archi files
 ![ApplicationUsage](InsuranceCompany-TechnologyUsage.png)
 
 
-## BPMN choreography diagram
 
-![BPMN choreography](Insurance-Choreo.pdf)
-
-## BPMN collaboration diagram

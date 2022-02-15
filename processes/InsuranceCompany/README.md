@@ -1,3 +1,10 @@
-# Insurance Company executable process
+# Insurance Company process
 
-Here you can find the executable process of the Insurance Company case study
+## Choreography diagram
+![Choreography](InsuranceCompany-Choreography.png)
+
+## Collaboration diagram
+![Collaboration](InsuranceCompany-Collaboration.png)
+
+## Executable process
+
