@@ -28,5 +28,15 @@ Some views are reported here. A complete set is included in the Archi files
 ### Technology usage view
 ![ApplicationUsage](InsuranceCompany-TechnologyUsage.png)
 
+## BPMN Process diagrams
+
+### Choreography diagram
+![Choreography](InsuranceCompany-Choreography.png)
+
+### Collaboration diagram
+![Collaboration](InsuranceCompany-Collaboration.png)
+
+## Executable process
 
 
+## Services
