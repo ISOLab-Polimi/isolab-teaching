@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 2,
+  "components": [
+    {
+      "values": [
+        {
+          "label": "Yes",
+          "value": "true"
+        },
+        {
+          "value": "false",
+          "label": "No"
+        }
+      ],
+      "label": "Do you want to accept this contract?",
+      "type": "radio",
+      "id": "Field_1tkhg55",
+      "key": "contract_choice",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "action": "submit",
+      "label": "Send",
+      "type": "button",
+      "id": "Field_04slx0y",
+      "key": "field_0sa408t"
+    }
+  ],
+  "type": "default",
+  "id": "contract-choice",
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.16"
+}

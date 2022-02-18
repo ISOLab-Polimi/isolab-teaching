@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 2,
+  "components": [
+    {
+      "label": "Serial Number",
+      "type": "textfield",
+      "id": "Field_0tg46jc",
+      "key": "serial_number",
+      "validate": {
+        "required": true,
+        "minLength": 10,
+        "maxLength": 10
+      }
+    },
+    {
+      "label": "Date",
+      "type": "textfield",
+      "id": "Field_1hcdfxj",
+      "key": "date",
+      "validate": {
+        "required": true,
+        "regularExpressionPattern": "00/00/0000"
+      }
+    },
+    {
+      "label": "Description",
+      "type": "textfield",
+      "id": "Field_0lwsxue",
+      "key": "description"
+    }
+  ],
+  "type": "default",
+  "id": "item-details",
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.16"
+}

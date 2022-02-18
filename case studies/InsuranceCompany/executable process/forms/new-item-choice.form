@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 2,
+  "components": [
+    {
+      "values": [
+        {
+          "value": "true",
+          "label": "Yes"
+        },
+        {
+          "value": "false",
+          "label": "No"
+        }
+      ],
+      "label": "Do you want to try with a new item?",
+      "type": "radio",
+      "id": "Field_1cklgfk",
+      "key": "new_item_choice"
+    },
+    {
+      "action": "submit",
+      "label": "Send",
+      "type": "button",
+      "id": "Field_1w1k644",
+      "key": "field_0syavtm"
+    }
+  ],
+  "type": "default",
+  "id": "new-item-choice",
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.16"
+}

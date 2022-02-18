@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 2,
+  "components": [
+    {
+      "label": "Username",
+      "type": "textfield",
+      "id": "Field_1y30ijp",
+      "key": "username",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Password",
+      "type": "textfield",
+      "id": "Field_141vuhy",
+      "key": "password",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "action": "submit",
+      "label": "Submit",
+      "type": "button",
+      "id": "Field_0aa20kh",
+      "key": "field_1n3eh3i"
+    }
+  ],
+  "type": "default",
+  "id": "login",
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.16"
+}
