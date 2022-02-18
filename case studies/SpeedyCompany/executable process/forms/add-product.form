@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 2,
+  "components": [
+    {
+      "label": "Product name",
+      "type": "textfield",
+      "id": "Field_02y6ytr",
+      "key": "product",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Comment",
+      "type": "textfield",
+      "id": "Field_1xwmas8",
+      "key": "comment",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "add other products",
+      "type": "checkbox",
+      "id": "Field_1fv0dv4",
+      "key": "other"
+    }
+  ],
+  "type": "default",
+  "id": "add-product",
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.16"
+}

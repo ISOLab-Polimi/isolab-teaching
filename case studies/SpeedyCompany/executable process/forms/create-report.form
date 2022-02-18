@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 2,
+  "components": [
+    {
+      "label": "approve",
+      "type": "checkbox",
+      "id": "Field_1ax7ss0",
+      "key": "approved"
+    }
+  ],
+  "type": "default",
+  "id": "create-report",
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.16"
+}

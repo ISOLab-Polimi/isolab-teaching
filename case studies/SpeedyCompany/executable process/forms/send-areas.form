@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 2,
+  "components": [
+    {
+      "values": [
+        {
+          "label": "City Center",
+          "value": "center"
+        },
+        {
+          "value": "suburb",
+          "label": "Suburb"
+        },
+        {
+          "label": "Countryside",
+          "value": "countryside"
+        }
+      ],
+      "label": "Select an area",
+      "type": "select",
+      "id": "Field_176p6ws",
+      "key": "area",
+      "validate": {
+        "required": true
+      }
+    }
+  ],
+  "type": "default",
+  "id": "send-areas",
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.16"
+}

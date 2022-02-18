@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 2,
+  "components": [
+    {
+      "values": [
+        {
+          "label": "Pizza",
+          "value": "pizza"
+        },
+        {
+          "label": "Hamburger",
+          "value": "hamburger"
+        },
+        {
+          "label": "Sushi",
+          "value": "sushi"
+        },
+        {
+          "label": "Poke",
+          "value": "poke"
+        }
+      ],
+      "label": "Radio",
+      "type": "radio",
+      "id": "Field_0oiq382",
+      "key": "field_1qxlsw4"
+    },
+    {
+      "text": "<h3>Lista prodotti</h3>\n<ul>\n<li>Pizza</li>\n<li>Hamburger</li>\n<li>Sushi</li>\n<li>Poker</li>\n</ul>",
+      "type": "text",
+      "id": "Field_04pigoi"
+    }
+  ],
+  "type": "default",
+  "id": "select-product",
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.16"
+}
