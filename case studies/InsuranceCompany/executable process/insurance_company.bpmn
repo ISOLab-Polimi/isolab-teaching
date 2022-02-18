@@ -18,13 +18,10 @@
     </bpmn:serviceTask>
     <bpmn:exclusiveGateway id="reliable-gateway" name="Reliable?">
       <bpmn:incoming>Flow_01juy5a</bpmn:incoming>
-      <bpmn:outgoing>Flow_0mt4hfd</bpmn:outgoing>
       <bpmn:outgoing>Flow_0yt3r77</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0mt4hfd</bpmn:outgoing>
     </bpmn:exclusiveGateway>
     <bpmn:sequenceFlow id="Flow_01juy5a" sourceRef="history-activity" targetRef="reliable-gateway" />
-    <bpmn:sequenceFlow id="Flow_0mt4hfd" name="Yes" sourceRef="reliable-gateway" targetRef="item-details-activity">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${reliability.equals("true")}</bpmn:conditionExpression>
-    </bpmn:sequenceFlow>
     <bpmn:endEvent id="reliability-end" name="Process Not Reliable">
       <bpmn:incoming>Flow_0yt3r77</bpmn:incoming>
     </bpmn:endEvent>
@@ -35,12 +32,12 @@
       <bpmn:extensionElements>
         <camunda:formData>
           <camunda:formField id="serial_number" type="string" />
-          <camunda:formField id="date" type="date" />
+          <camunda:formField id="date" type="string" />
           <camunda:formField id="description" type="string" />
         </camunda:formData>
       </bpmn:extensionElements>
-      <bpmn:incoming>Flow_0mt4hfd</bpmn:incoming>
       <bpmn:incoming>Flow_0hnqng4</bpmn:incoming>
+      <bpmn:incoming>Flow_0mt4hfd</bpmn:incoming>
       <bpmn:outgoing>Flow_0p817lk</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:sequenceFlow id="Flow_0p817lk" sourceRef="item-details-activity" targetRef="estimation-activity" />
@@ -91,9 +88,6 @@
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_18ifwsv" name="No" sourceRef="new-item-gateway" targetRef="Event_0zgwy27">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!new_item_choice}</bpmn:conditionExpression>
-    </bpmn:sequenceFlow>
-    <bpmn:sequenceFlow id="Flow_0hnqng4" name="Yes" sourceRef="new-item-gateway" targetRef="item-details-activity">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${new_item_choice}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="Flow_01e0wir" sourceRef="contract-generation-activity" targetRef="contract-choice-activity" />
     <bpmn:userTask id="contract-choice-activity" name="Accept contract" camunda:formRef="contract-choice" camunda:formRefBinding="deployment">
@@ -157,6 +151,12 @@
       <bpmn:incoming>Flow_0p817lk</bpmn:incoming>
       <bpmn:outgoing>Flow_1jwmfol</bpmn:outgoing>
     </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_0hnqng4" name="Yes" sourceRef="new-item-gateway" targetRef="item-details-activity">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${new_item_choice}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_0mt4hfd" name="Yes" sourceRef="reliable-gateway" targetRef="item-details-activity">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${reliability.equals("true")}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
   </bpmn:process>
   <bpmn:message id="Message_11c6n3j" name="login-message" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
@@ -252,7 +252,7 @@
         <di:waypoint x="730" y="220" />
         <di:waypoint x="820" y="220" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="736" y="253" width="18" height="14" />
+          <dc:Bounds x="745" y="202" width="18" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_01juy5a_di" bpmnElement="Flow_01juy5a">
@@ -324,6 +324,15 @@
       <bpmndi:BPMNShape id="Event_1tfd99m_di" bpmnElement="Event_1tfd99m">
         <dc:Bounds x="1792" y="202" width="36" height="36" />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0zpl8l9_di" bpmnElement="save-contract-activity">
+        <dc:Bounds x="2000" y="90" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1dvjlw7_di" bpmnElement="Event_1dvjlw7">
+        <dc:Bounds x="2192" y="112" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_15oklng_di" bpmnElement="sign-contract-activity">
+        <dc:Bounds x="1810" y="90" width="100" height="80" />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_0xw6u05_di" bpmnElement="login-start">
         <dc:Bounds x="172" y="299" width="36" height="36" />
         <bpmndi:BPMNLabel>
@@ -332,15 +341,6 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0p86qid_di" bpmnElement="estimation-activity">
         <dc:Bounds x="990" y="180" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_15oklng_di" bpmnElement="sign-contract-activity">
-        <dc:Bounds x="1810" y="90" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0zpl8l9_di" bpmnElement="save-contract-activity">
-        <dc:Bounds x="2000" y="90" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_1dvjlw7_di" bpmnElement="Event_1dvjlw7">
-        <dc:Bounds x="2192" y="112" width="36" height="36" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

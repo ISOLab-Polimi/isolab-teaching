@@ -19,23 +19,29 @@ client.subscribe('estimate-price', async function({ task, taskService }) {
   const item_date = task.variables.get('date');
   const item_description = task.variables.get('description');
   const process_vars = new Variables();
-  const threshold_date = new Date("2000")
+  var estimation = false;
   var price;
 
   console.log("Item ID: " + item_id);
   console.log("Date: " + item_date);
   console.log("Product description: " + item_description);
 
-  if (item_date < threshold_date) {
-      price = 3000;
-      process_vars.set("amount", price);
-      console.log("BAD ITEM ESTIMATION");
+  //Check if it is a good item
+  if (item_id == "0000000000") {
+    estimation = true;
   }
+
+  if (estimation) {
+    price = 300;
+    process_vars.set("amount",price);
+    console.log("GOOD ITEM ESTIMATION");
+  } 
   else {
-      price = 300;
-      process_vars.set("amount",price);
-      console.log("GOOD ITEM ESTIMATION");
+    price = 3000;
+    process_vars.set("amount", price);
+    console.log("BAD ITEM ESTIMATION");
   }
+
   console.log("Estimated price: " + price)  
 
   // Complete the task

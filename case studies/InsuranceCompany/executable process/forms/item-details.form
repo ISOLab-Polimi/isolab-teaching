@@ -9,7 +9,8 @@
       "validate": {
         "required": true,
         "minLength": 10,
-        "maxLength": 10
+        "maxLength": 10,
+        "regularExpressionPattern": "0000000000"
       }
     },
     {
@@ -19,7 +20,9 @@
       "key": "date",
       "validate": {
         "required": true,
-        "regularExpressionPattern": "00/00/0000"
+        "regularExpressionPattern": "0000-00-00",
+        "minLength": 10,
+        "maxLength": 10
       }
     },
     {
