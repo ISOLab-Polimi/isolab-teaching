@@ -1,6 +1,6 @@
 # DigitOil
 
-DigitOil is a an olive oil company located in Southern Italy that is leveraging on the new technologies to improve the internal processes. In particular, a key process of the company concerns all the activities required to plan the seasonal oil harvesting. In fact, selecting the right period and minimizing the time from the harvesting to the olives squeezing deeply affects the quality of the final product. 
+DigitOil is a an olive oil company located in Southern Italy that is leveraging on the new technologies to improve its internal processes. In particular, a key process of the company concerns all the activities required to plan the seasonal oil harvesting. In fact, selecting the right period and minimizing the time from the harvesting to the olives squeezing deeply affect the quality of the final product. 
 
 The process is composed of the following activities: to decide when to pick the olives, to schedule the distribution to the affiliated mills according to their availabilities, to deliver the olives to the mills, to squeeze the olives, and finally to store the oil in the company's warehouses.
 
