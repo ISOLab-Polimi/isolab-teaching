@@ -2,8 +2,8 @@
 
 Some views are reported here. A complete set is included in the Archi files
 
-![ApplicationUsage](InsuranceCompany-ApplicationUsage.png)
-![ApplicationUsage](InsuranceCompany-TechnologyUsage.png)
+![ApplicationUsage](speedy-applusage1.png)
+![ApplicationUsage](speedy-applayer.png)
 
 
 
