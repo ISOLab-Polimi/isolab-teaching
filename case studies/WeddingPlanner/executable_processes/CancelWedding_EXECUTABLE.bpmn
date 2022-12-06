@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1p7k739" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.5.1" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.18.0">
+  <bpmn:collaboration id="CancelWedding">
+    <bpmn:participant id="Participant_11qu4c3" name="Couple" processRef="cancel-wedding" />
+  </bpmn:collaboration>
+  <bpmn:process id="cancel-wedding" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_0l1s209</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:exclusiveGateway id="Gateway_131t74s" name="Are you sure?">
+      <bpmn:incoming>Flow_1n020uo</bpmn:incoming>
+      <bpmn:outgoing>Flow_06edeci</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1jnkbjz</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:endEvent id="Event_162mel1" name="Cancel wedding messge">
+      <bpmn:incoming>Flow_06edeci</bpmn:incoming>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_10b4jwi" messageRef="Message_3fh8mlt" camunda:type="external" camunda:topic="send-cancel-wedding" />
+    </bpmn:endEvent>
+    <bpmn:endEvent id="Event_06doec0">
+      <bpmn:incoming>Flow_1jnkbjz</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:userTask id="Activity_1sa2ev5" name="Confirm wedding cancellation">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="confirm" label="Are you sure to cancel your wedding?" type="boolean" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0l1s209</bpmn:incoming>
+      <bpmn:outgoing>Flow_1n020uo</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_0l1s209" sourceRef="StartEvent_1" targetRef="Activity_1sa2ev5" />
+    <bpmn:sequenceFlow id="Flow_1n020uo" sourceRef="Activity_1sa2ev5" targetRef="Gateway_131t74s" />
+    <bpmn:sequenceFlow id="Flow_06edeci" name="Yes" sourceRef="Gateway_131t74s" targetRef="Event_162mel1">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${confirm}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_1jnkbjz" name="No" sourceRef="Gateway_131t74s" targetRef="Event_06doec0">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!confirm}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+  </bpmn:process>
+  <bpmn:message id="Message_3fh8mlt" name="cancel-wedding" />
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="CancelWedding">
+      <bpmndi:BPMNShape id="Participant_11qu4c3_di" bpmnElement="Participant_11qu4c3" isHorizontal="true">
+        <dc:Bounds x="160" y="80" width="478" height="230" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="220" y="132" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_131t74s_di" bpmnElement="Gateway_131t74s" isMarkerVisible="true">
+        <dc:Bounds x="463" y="125" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="454" y="106" width="68" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_11qwpww_di" bpmnElement="Event_162mel1">
+        <dc:Bounds x="570" y="132" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="549" y="175" width="79" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_06doec0_di" bpmnElement="Event_06doec0">
+        <dc:Bounds x="570" y="242" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0fuyyg9_di" bpmnElement="Activity_1sa2ev5">
+        <dc:Bounds x="308" y="110" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0l1s209_di" bpmnElement="Flow_0l1s209">
+        <di:waypoint x="256" y="150" />
+        <di:waypoint x="308" y="150" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1n020uo_di" bpmnElement="Flow_1n020uo">
+        <di:waypoint x="408" y="150" />
+        <di:waypoint x="463" y="150" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_06edeci_di" bpmnElement="Flow_06edeci">
+        <di:waypoint x="513" y="150" />
+        <di:waypoint x="570" y="150" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="533" y="132" width="18" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1jnkbjz_di" bpmnElement="Flow_1jnkbjz">
+        <di:waypoint x="488" y="175" />
+        <di:waypoint x="488" y="260" />
+        <di:waypoint x="570" y="260" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="496" y="215" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

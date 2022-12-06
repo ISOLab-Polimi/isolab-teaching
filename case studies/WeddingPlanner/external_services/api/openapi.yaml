@@ -1,0 +1,161 @@
+openapi: 3.0.0
+info:
+  title: WeddingPlanner external-services
+  description: "Add a description"
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+- url: http://localhost:3000/
+  description: Local Server
+tags:
+- name: basicSuppliers
+  description: APIs of the third party services for basic suppliers 
+    **basicSuppliers**
+- name: additionalSuppliers
+  description: APIs of the third party services for additional suppliers 
+    **additionalSuppliers**
+
+
+
+paths:
+
+  ################################################################
+  ###################### BASIC SUPPLIERS #########################
+  ################################################################
+
+  /basicSuppliers/new-wedding:
+    post:
+      tags:
+      - basicSuppliers
+      summary: post a new request with wedding date
+      description: This API allows to inform basic suppliers about the wedding date
+      operationId: newWeddingBS
+      requestBody:
+        description: Wedding date
+        content:
+          application/json:
+            schema:
+              properties:
+                weddingID:
+                  type: integer
+                date:
+                  type: string
+        required: true
+      responses:
+        "200":
+          description: "Request accepted"
+        "400":
+          description: "Bad request"
+      x-swagger-router-controller: BasicSuppliers
+
+  
+
+  /basicSuppliers/get-location-images:
+    post:
+      tags:
+        - basicSuppliers
+      summary: Get the wedding location images
+      description: This API allows to get URL to images for a wedding location
+      operationId: weddingLocationImages
+      requestBody:
+        description: WeddingID (or Couple Name/Wedding date)
+        content:
+          application/json:
+            schema:
+              properties:
+                weddingID:
+                  type: integer
+        required: true
+      responses:
+        "200":
+          description: Response contains the images URL
+          content:
+            application/json:
+              schema:
+                properties:
+                  imagesURL:
+                    type: string
+        "400":
+          description: "Bad request"
+      x-swagger-router-controller: BasicSuppliers
+
+
+
+  /basicSuppliers/cancel-wedding:
+    post:
+      tags:
+        - basicSuppliers
+      summary: Cancel wedding date
+      description: This API allows to inform basic suppliers that a wedding has been canceled
+      operationId: cancelWeddingBS
+      requestBody:
+        description: WeddingID (or Couple name)
+        content:
+          application/json:
+            schema:
+              properties:
+                weddingID:
+                  type: integer
+        required: true
+      responses:
+        "200":
+          description: "Request accepted"
+        "400":
+          description: "Bad request"
+      x-swagger-router-controller: BasicSuppliers
+
+  ################################################################
+  ################### ADDITIONAL SUPPLIERS #######################
+  ################################################################
+
+  /additionalSuppliers/new-wedding:
+      post:
+        tags:
+        - additionalSuppliers
+        summary: post a new request with wedding date
+        description: This API allows to inform additional suppliers about the wedding date
+        operationId: newWeddingAS
+        requestBody:
+          description: Wedding date
+          content:
+            application/json:
+              schema:
+                properties:
+                  weddingID:
+                    type: integer
+                  date:
+                    type: string
+          required: true
+        responses:
+          "200":
+            description: "Request accepted"
+          "400":
+            description: "Bad request"
+        x-swagger-router-controller: AdditionalSuppliers
+
+    
+
+  /additionalSuppliers/cancel-wedding:
+    post:
+      tags:
+        - additionalSuppliers
+      summary: Cancel wedding date
+      description: This API allows to inform additional suppliers that a wedding has been canceled
+      operationId: cancelWeddingAS
+      requestBody:
+        description: WeddingID (or Couple name)
+        content:
+          application/json:
+            schema:
+              properties:
+                weddingID:
+                  type: integer
+        required: true
+      responses:
+        "200":
+          description: "Request accepted"
+        "400":
+          description: "Bad request"
+      x-swagger-router-controller: AdditionalSuppliers
