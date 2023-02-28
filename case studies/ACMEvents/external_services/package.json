@@ -1,0 +1,21 @@
+{
+  "name": "third_party_services",
+  "version": "1.0.0",
+  "description": "External services with rest API endpoints called from the camunda-client of the city-event exercise",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "npm install",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "swagger"
+  ],
+  "license": "Unlicense",
+  "private": true,
+  "dependencies": {
+    "connect": "^3.7.0",
+    "js-yaml": "^4.1.0",
+    "nodemon": "^2.0.20",
+    "oas3-tools": "^2.2.3"
+  }
+}

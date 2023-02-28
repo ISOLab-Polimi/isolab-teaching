@@ -1,0 +1,110 @@
+openapi: 3.0.0
+info:
+  title: CityEvent external-services
+  description: "Add a description"
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+- url: http://localhost:3000/
+  description: Local Server
+tags:
+- name: artists
+  description: APIs of the third party services for artists external services 
+    **artists**
+
+paths:
+
+  ################################################################
+  ########################## ARTISTS #############################
+  ################################################################
+
+  /artists/contact-artist:
+    post:
+      tags:
+      - artists
+      summary: Post a new request to a specific artist to partecipate to an event
+      description: This API allows to inform artists about the event
+      operationId: newEventRequest
+      requestBody:
+        description: Event
+        content:
+          application/json:
+            schema:
+              properties:
+                artistName:
+                  type: string
+                date:
+                  type: string
+                time:
+                  type: string
+        required: true
+      responses:
+        "200":
+          description: Availability/New timeslot response
+          content:
+            application/json:
+              schema:
+                properties:
+                  availability:
+                    type: boolean
+                  newTimeslot:
+                    type: boolean
+        "400":
+          description: "Bad request"
+      x-swagger-router-controller: Artists
+
+  
+
+  /artists/no-available-timeslot:
+    post:
+      tags:
+        - artists
+      summary: Inform no available timeslot
+      description: This API allows to inform a specific artist that there is no available timeslot
+      operationId: noAvailableTimeslot
+      requestBody:
+        description: Event
+        content:
+          application/json:
+            schema:
+              properties:
+                artistName:
+                  type: string
+                date:
+                  type: string
+        required: true
+      responses:
+        "200":
+          description: "Request OK"
+        "400":
+          description: "Bad request"
+      x-swagger-router-controller: Artists
+
+  /artists/new-timeslot:
+    post:
+      tags:
+        - artists
+      summary: Provide new timeslot for the event
+      description: This API allow artists to be informed on the new timeslot for the event
+      operationId: newTimeSlot
+      requestBody:
+        description: Event
+        content:
+          application/json:
+            schema:
+              properties:
+                artistName:
+                  type: string
+                date:
+                  type: string
+                time:
+                  type: string
+        required: true
+      responses:
+        "200":
+          description: "Request OK"
+        "400":
+          description: "Bad request"
+      x-swagger-router-controller: Artists

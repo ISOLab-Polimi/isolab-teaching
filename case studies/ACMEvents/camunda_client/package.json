@@ -1,0 +1,21 @@
+{
+  "name": "city-event",
+  "version": "1.0.0",
+  "description": "This is a nodejs client that subscribes to the service tasks of the ACMEvents - EXECUTABLE bpmn file in the project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "camunda-external-task-client-js": "^2.2.0",
+    "install": "^0.13.0",
+    "node-rest-client": "^3.1.1",
+    "npm": "^8.13.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
